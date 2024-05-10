@@ -51,7 +51,7 @@ app.get('/api/persons/:id', (req, res) => {
     const id = +req.params.id;
     const contact = contacts.find(contact => contact.id === id);
     if (!contact) {
-        return res.status(404).end();
+        return res.status(404).json({ msg: "No contact found" });
     }
 
     res.json(contact);
